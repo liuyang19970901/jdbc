@@ -1,0 +1,19 @@
+select* from emp;
+
+create table lyproduct(
+id int(5) unique primary key ,-- 主键
+name int(18) unique not null,-- 商品编码
+shelf varchar(6)not nulL -- 商品保质期
+);
+desc product;
+
+create table luofferprice(
+    ofp_id  int unique primary key,     -- id价格主键
+    es_date varchar(18)        not null,-- 价格有效起的开始时间，
+    ee_date varchar(15)        not nulL,-- 结束时间
+    id   int(5)             not null,-- 外健
+    price   varchar(18) unique not null,-- 单价
+    typecd  varchar(5)         not null,-- 价格 单价
+    foreign key (id) references lyproduct (id)
+);
+desc offerprice;
